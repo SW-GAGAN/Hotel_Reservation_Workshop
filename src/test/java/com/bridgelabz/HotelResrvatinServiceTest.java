@@ -48,8 +48,25 @@ public class HotelResrvatinServiceTest {
                 hotelReservationService.findCheapestHotelsBasedOnDay(CustomerType.regular,
                         "11Sep2020", "12Sep2020");
 
-        Assertions.assertEquals(2, cheapestHotelResult.size());
-        Assertions.assertEquals(200, cheapestHotelResult.get(0).getTotalRate());
+        Assertions.assertEquals(2,cheapestHotelResult.size());
+        Assertions.assertEquals(200,cheapestHotelResult.get(0).getTotalRate());
+    }
+    @Test
+    public void givenDateRange_whenSearched_shouldReturnCheapestHotelBasedOnWeekdayAndWeekendTrue() {
+        List<Result> cheapestHotelResult = hotelReservationService.findCheapestHotelsBasedOnDay(CustomerType.regular,
+                "11Sep2020", "12Sep2020");
+
+        Assert.assertEquals(2, cheapestHotelResult.size());
+        Assert.assertEquals(200, cheapestHotelResult.get(0).getTotalRate());
     }
 
+    @Test
+    public void givenWeekdayAndWeekend_whenCostForEach_shouldBeAddedToWeekdayAndWeekend() {
+        Assert.assertEquals(220, this.hotelReservationService.cost(ridgewood));
+
+    }
+    @Test
+    public void givenHotel_whenInvokedAddRating_shouldBeAbleToAdd() {
+        Assert.assertEquals(3,lakewood.getrating(3));
+    }
 }
