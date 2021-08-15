@@ -1,7 +1,16 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
+/* @Description - Add hotel in hotel reservation system */
+
 public class HotelReservationService {
-    public static void main(String[] args){
-        System.out.println("Welcome to Hotel Reservation!");
+    private List<Hotel> hotels;
+
+    public HotelReservationService() {
+        this.hotels = new ArrayList<>();
+    }
+    public boolean addHotel(Hotel hotel) {
+        return this.hotels.add(hotel);
     }
 }
